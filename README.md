@@ -9,7 +9,6 @@ No server, no database, no paid tools required.
 
 ```
 customs_dashboard/
-├── index.html              ← Open this in your browser
 ├── extract_pdf.ipynb       ← Run this every month after adding new PDFs
 ├── generate_data.py        ← Run this every month after generating new CSVs
 ├── data/
@@ -18,8 +17,10 @@ customs_dashboard/
 │   │   ├── im4_2026_01.csv
 │   │   ├── im7_2026_01.csv
 │   │   └── ...
-│   └── processed/
+├── public/
+│   └── data/
 │       └── dashboard_data.json   ← Auto-generated, do not edit
+|   |── index.html                ← Open this in your browser
 └── README.md
 ```
 
@@ -56,7 +57,7 @@ hscode, description, net_wt_kg, assess_value_bdt, invoice_value_bdt
 python generate_data.py
 ```
 
-**Step 4:** Open (or refresh) `index.html` in your browser.
+**Step 4:** Open (or refresh) `public/index.html` in your browser.
 
 That's it. The dashboard auto-updates from the new JSON.
 
@@ -78,7 +79,7 @@ Option A — Double-click `index.html` (works in most browsers)
 Option B — Serve locally (recommended, avoids browser security restrictions):
 ```bash
 # Python built-in server
-cd customs_dashboard
+cd public
 python -m http.server 8000
 # Then open: http://localhost:8000
 ```
@@ -112,6 +113,6 @@ python -m http.server 8000
 ## Notes
 
 - All monetary values are in **BDT (Bangladeshi Taka)**
-- The dashboard reads `data/processed/dashboard_data.json` — this file is regenerated every time you run `generate_data.py`
+- The dashboard reads `public/data/dashboard_data.json` — this file is regenerated every time you run `generate_data.py`
 - Old months are preserved automatically — just keep all CSVs in `data/raw/`
 - The search page supports partial matching on both HS code number and description text

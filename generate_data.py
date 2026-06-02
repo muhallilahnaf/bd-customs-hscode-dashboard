@@ -2,7 +2,7 @@
 Bangladesh Customs Import Data - ETL Script
 ============================================
 Run this script every month after generating new CSVs to data/raw/
-Output: data/processed/dashboard_data.json
+Output: public/data/dashboard_data.json
 
 CSV filename format: {type}_{year}_{month}.csv
   Examples: im4_2026_01.csv, im7_2025_12.csv
@@ -20,7 +20,7 @@ from collections import defaultdict
 # ── Paths ──────────────────────────────────────────────────────────────────────
 BASE_DIR   = Path(__file__).parent
 RAW_DIR    = BASE_DIR / "data" / "raw"
-OUT_DIR    = BASE_DIR / "data" / "processed"
+OUT_DIR    = BASE_DIR / "public" / "data"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── HS Code Chapter / Section mapping (first 2 digits → chapter name) ─────────
