@@ -787,7 +787,7 @@ function mkChart(id) {
 // ── Load data ─────────────────────────────────────────────────────────────────
 async function loadData() {
   try {
-    const res = await fetch('data/processed/dashboard_data.json');
+    const res = await fetch('../data/processed/dashboard_data.json');
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     D = await res.json();
     document.getElementById('loadingScreen').style.display = 'none';
